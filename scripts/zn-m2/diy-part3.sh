@@ -11,7 +11,13 @@
 #
 
 # Modify default IP
-#sed -i 's/192.168.1.1/192.168.100.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.9.1/g' package/base-files/files/bin/config_generate
+
+#修改机器名称
+sed -i 's/Openwrt/A18/g' package/base-files/files/bin/config_generate
+
+# 修改插件名字（修改名字后不知道会不会对插件功能有影响，自己多测试）
+sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' package/feeds/luci/luci-app-turboacc/po/zh-cn/turboacc.po
 
 # 替换golang版本为1.22
 rm -rf feeds/packages/lang/golang
